@@ -66,6 +66,7 @@ def callback_query(call):
 
     if call.data == "All_categories":
         list_table = []
+
         if not table_names:
             bot.send_message(call.message.chat.id, "Нет таблиц в базе данных.")
             return
@@ -75,49 +76,61 @@ def callback_query(call):
                 table_names_list.append(table)
                 button123 = types.InlineKeyboardButton(text=table, callback_data=table)  # Создаем кнопку для каждой таблицы
                 keyboard14.add(button123)  # Добавляем кнопку в клавиатуру
+
         bot.send_message(call.message.chat.id, "Выберите категорию:", reply_markup=keyboard14)
         return keyboard14
 
-    for table in table_names:
-        if call.data == table:
-            if table != 'sqlite_sequence':
-                list_table.append(table)
-                users = get_all_users(table, call.message)
-                keyboard1 = types.InlineKeyboardMarkup()  # Создаем клавиатуру один раз
-                button11 = types.InlineKeyboardButton(text='Добавить задание',
-                                                    callback_data='data_work')  # Создаем кнопку для каждой таблицы
-                keyboard1.add(button11)  # Добавляем кнопку в клавиатуру
-                bot.send_message(call.message.chat.id, f"Категория '{table}' не имеет заданий ",
-                                 reply_markup=keyboard1)
-                if users:
-                    my_list = []
-                    for row in users:
-                        keyboard = types.InlineKeyboardMarkup()  # Создаем клавиатуру один раз
+    # if call.data == 'Анализ':
+    #     print(table_names_list)
+    #     print(call.data, 'call.datacall.datacall.datacall.data')
 
-                        if row[0] not in my_list:
-                            my_list.append(row[0])
-                            # Сохраняем последний элемент
-                            last_element = my_list[-1]
-                            # Очищаем список и добавляем только последний элемент
-                            my_list = [last_element]
-                            button = types.InlineKeyboardButton(text='Редактирование',
-                                                                callback_data=f'++{row[0]}')  # Создаем кнопку для каждой таблицы
-
-                            button1 = types.InlineKeyboardButton(text='Выполнено',
-                                                                 callback_data=f'{row[0]}')  # Создаем кнопку для каждой таблицы
-                            keyboard.add(button, button1)  # Добавляем кнопку в клавиатуру
-
-                        if row[4] == 'не_выполнено':
-                            # try:
-                            # keyboard['keyboard']
-                            bot.send_message(call.message.chat.id, f"Категория '{list_table[0]}',\nЗадание: {row[2]},\nДедлайн {row[3]},\nСтатус '{row[4]}'",
-                                             reply_markup=keyboard)
-                        else:
-                            bot.send_message(call.message.chat.id,
-                                             f"Категория '{list_table[0]}',\nЗадание: {row[2]},\nДедлайн {row[3]},\nСтатус '{row[4]}'")
-                    return keyboard
-                else:
+    if call.data in table_names_list:
+        # print(call.data, 'call.datacall.datacall.datacall.data')
+        for table in table_names_list:
+            if call.data == table:
+                print(call.data, table, 'tabletabletabletabletabletabletable')
+                # print(table_names_list)
+                # print(list_table)
+                if table != 'sqlite_sequence':
                     list_table.append(table)
+                    users = get_all_users(call.data)
+                    print(call.data, 'call.datacall.datacall.datacall.data')
+                    print(users)
+                    keyboard1 = types.InlineKeyboardMarkup()  # Создаем клавиатуру один раз
+                    button11 = types.InlineKeyboardButton(text='Добавить задание',
+                                                        callback_data='data_work')  # Создаем кнопку для каждой таблицы
+                    keyboard1.add(button11)  # Добавляем кнопку в клавиатуру
+                    bot.send_message(call.message.chat.id, f"Категория '{table}'",
+                                     reply_markup=keyboard1)
+                    if users:
+                        my_list = []
+                        for row in users:
+                            keyboard = types.InlineKeyboardMarkup()  # Создаем клавиатуру один раз
+
+                            if row[0] not in my_list:
+                                my_list.append(row[0])
+                                # Сохраняем последний элемент
+                                last_element = my_list[-1]
+                                # Очищаем список и добавляем только последний элемент
+                                my_list = [last_element]
+                                button = types.InlineKeyboardButton(text='Редактирование',
+                                                                    callback_data=f'++{row[0]}')  # Создаем кнопку для каждой таблицы
+
+                                button1 = types.InlineKeyboardButton(text='Выполнено',
+                                                                     callback_data=f'{row[0]}')  # Создаем кнопку для каждой таблицы
+                                keyboard.add(button, button1)  # Добавляем кнопку в клавиатуру
+
+                            if row[4] == 'не_выполнено':
+                                # try:
+                                # keyboard['keyboard']
+                                bot.send_message(call.message.chat.id, f"Категория '{list_table[0]}',\nЗадание: {row[2]},\nДедлайн {row[3]},\nСтатус '{row[4]}'",
+                                                 reply_markup=keyboard)
+                            else:
+                                bot.send_message(call.message.chat.id,
+                                                 f"Категория '{list_table[0]}',\nЗадание: {row[2]},\nДедлайн {row[3]},\nСтатус '{row[4]}'")
+                        return keyboard
+                    # else:
+                    #     list_table.append(table)
 
     if call.data == "data_work":
         bot.send_message(call.message.chat.id, 'Введи название новой строки "business"///"created_at"\n'
@@ -156,7 +169,7 @@ def get_second_word(message):
     words_list.append(second_word)
     bot.send_message(message.chat.id, f"Введите дату выполнения задания: {words_list}")
     try:
-        conn = sqlite3.connect('../../Desktop/example.db')
+        conn = sqlite3.connect('example.db')
         c = conn.cursor()
         global int_call_data
         x = str(words_list[0])
@@ -174,25 +187,27 @@ def get_second_word(message):
 def done_row(int_call):
     print(list_table[0])
     print(int_call)
-    conn = sqlite3.connect('../../Desktop/example.db')
+    conn = sqlite3.connect('example.db')
     c = conn.cursor()
     c.execute(f'''UPDATE [{list_table[0]}] SET data = ? WHERE id = ?''',
               ('Выполнено', int(int_call)))
     # Сохраняем изменения в базе данных
     conn.commit()
 
-def get_all_users(table, message):
-    conn = sqlite3.connect('../../Desktop/example.db')
+def get_all_users(table):
+    print(1111111)
+    conn = sqlite3.connect('example.db')
     c = conn.cursor()
-    try:
-        c.execute(f"SELECT id, username, business, created_at, data FROM {table}")
-        rows = c.fetchall()
-        # print(rows)
-        return rows
-    except:
-        None
-        # bot.reply_to(message, text='55555555')
+
+    print(2222222222222)
+    c.execute(f"SELECT id, username, business, created_at, data FROM [{table}]")
+    rows = c.fetchall()
+    print(rows, 'rowsrowsrowsrowsrows')
     conn.close()
+    return rows
+
+        # bot.reply_to(message, text='55555555')
+    # conn.close()
 
 def handle_query(call):
     # Получаем имя таблицы из callback_data
@@ -231,7 +246,7 @@ def handle_new_row(message):
 def create_business(message):
     list_row = message.text.split('///')
 
-    conn = sqlite3.connect('../../Desktop/example.db')
+    conn = sqlite3.connect('example.db')
     c = conn.cursor()
     c.execute(f'''
     INSERT INTO [{list_table[0]}] (username, business, created_at)
@@ -246,7 +261,7 @@ def echo_message(message):
     return message.text
 
 def f_create_category(message):
-    conn = sqlite3.connect('../../Desktop/example.db')
+    conn = sqlite3.connect('example.db')
     c = conn.cursor()
     c.execute(f'''
         CREATE TABLE IF NOT EXISTS [{message}] (
@@ -262,7 +277,7 @@ def f_create_category(message):
     conn.commit()
 
 def print_table_names():
-    conn = sqlite3.connect('../../Desktop/example.db')
+    conn = sqlite3.connect('example.db')
     c = conn.cursor()
     c.execute(f'''SELECT name FROM sqlite_master WHERE type='table'; ''')
     tables = c.fetchall()
