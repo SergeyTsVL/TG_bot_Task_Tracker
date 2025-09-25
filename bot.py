@@ -156,7 +156,7 @@ def get_second_word(message):
     words_list.append(second_word)
     bot.send_message(message.chat.id, f"Введите дату выполнения задания: {words_list}")
     try:
-        conn = sqlite3.connect('example.db')
+        conn = sqlite3.connect('../../Desktop/example.db')
         c = conn.cursor()
         global int_call_data
         x = str(words_list[0])
@@ -174,7 +174,7 @@ def get_second_word(message):
 def done_row(int_call):
     print(list_table[0])
     print(int_call)
-    conn = sqlite3.connect('example.db')
+    conn = sqlite3.connect('../../Desktop/example.db')
     c = conn.cursor()
     c.execute(f'''UPDATE [{list_table[0]}] SET data = ? WHERE id = ?''',
               ('Выполнено', int(int_call)))
@@ -182,7 +182,7 @@ def done_row(int_call):
     conn.commit()
 
 def get_all_users(table, message):
-    conn = sqlite3.connect('example.db')
+    conn = sqlite3.connect('../../Desktop/example.db')
     c = conn.cursor()
     try:
         c.execute(f"SELECT id, username, business, created_at, data FROM {table}")
@@ -231,7 +231,7 @@ def handle_new_row(message):
 def create_business(message):
     list_row = message.text.split('///')
 
-    conn = sqlite3.connect('example.db')
+    conn = sqlite3.connect('../../Desktop/example.db')
     c = conn.cursor()
     c.execute(f'''
     INSERT INTO [{list_table[0]}] (username, business, created_at)
@@ -246,7 +246,7 @@ def echo_message(message):
     return message.text
 
 def f_create_category(message):
-    conn = sqlite3.connect('example.db')
+    conn = sqlite3.connect('../../Desktop/example.db')
     c = conn.cursor()
     c.execute(f'''
         CREATE TABLE IF NOT EXISTS [{message}] (
@@ -262,7 +262,7 @@ def f_create_category(message):
     conn.commit()
 
 def print_table_names():
-    conn = sqlite3.connect('example.db')
+    conn = sqlite3.connect('../../Desktop/example.db')
     c = conn.cursor()
     c.execute(f'''SELECT name FROM sqlite_master WHERE type='table'; ''')
     tables = c.fetchall()
