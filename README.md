@@ -38,22 +38,21 @@ _____________________________________
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/1.png)
 Запуск бота.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/2.png)
-hhhhhhhhhhhhh
+Создать новыу категорию.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/3.png)
-hhhhhhhhhhhhh
+Создать новыу категорию.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/4.png)
-hhhhhhhhhhhhh
+Вывод всех категорий списком.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/5.png)
-hhhhhhhhhhhhh
+Добавление записей в категории.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/6.png)
-hhhhhhhhhhhhh
+Вывод всех запсей конкретной категории.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/7.png)
-hhhhhhhhhhhhh
+Как выглядят категории когда статус изменне на выполнено.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/8.png)
-hhhhhhhhhhhhh
+Редактирование записей категории.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/9.png)
-hhhhhhhhhhhhh
-![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/10.png)
+
 
 ## Основные функции
 
