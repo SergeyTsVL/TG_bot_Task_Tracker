@@ -155,19 +155,22 @@ def callback_query(call):
         None
 
 def start_message(message):
-    bot.send_message(message.chat.id, "Введите первое слово:")
+    bot.send_message(message.chat.id, "Введите описание задания:")
     bot.register_next_step_handler(message, get_first_word)
 
 def get_first_word(message):
     first_word = message.text
     words_list.append(first_word)
-    bot.send_message(message.chat.id, "Введите описание задания:")
+    bot.send_message(message.chat.id, "Введите дедлайн задания:")
     bot.register_next_step_handler(message, get_second_word)
 #
 def get_second_word(message):
     second_word = message.text
     words_list.append(second_word)
-    bot.send_message(message.chat.id, f"Введите дату выполнения задания: {words_list}")
+    bot.send_message(message.chat.id, f"Изменения зафиксированны:
+                    \nОписание задания -> {words_list[0]}
+                    \nДедлайн задания -> {words_list[1]}")
+    
     try:
         conn = sqlite3.connect('example.db')
         c = conn.cursor()
@@ -288,5 +291,6 @@ def print_table_names():
 
 
 bot.polling()
+
 
 
