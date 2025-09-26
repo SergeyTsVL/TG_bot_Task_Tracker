@@ -176,6 +176,7 @@ def get_second_word(message):
         y = str(words_list[1])
         z = int(int_call_data[0])
         c.execute(f'''UPDATE [{list_table[0]}] SET business = ?, created_at = ? WHERE id = ?''', (x, y, z))
+        words_list.clear()
         # Сохраняем изменения в базе данных
         conn.commit()
     except:
@@ -287,4 +288,5 @@ def print_table_names():
 
 
 bot.polling()
+
 
