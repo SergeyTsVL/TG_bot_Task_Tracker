@@ -1,14 +1,8 @@
-import json
 import sqlite3
-
 import telebot
-from PIL import Image, ImageOps
-import io
 from telebot import types
 import os
-import random
-import requests
-from io import BytesIO
+
 
 # Прописываю токен в свой пайчарм
 TOKEN = os.environ.get("TOKEN")
@@ -291,6 +285,7 @@ def print_table_names():
 
 
 bot.polling()
+
 
 
 
