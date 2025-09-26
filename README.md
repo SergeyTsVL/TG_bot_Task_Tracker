@@ -32,6 +32,7 @@ _____________________________________
 ## Описание
 
 В данном боте можно добавлять категории и задания для каждого пользователя. Бот сохраняет их в базе данных Sqlite и выводит задания по каждой категории списком с возможностью редактировать каждое отдельное задание если оно еще не выполнено и/или ставить отметку о его выполнении.
+
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/0.png)
 hhhhhhhhhhhhh
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/1.png)
