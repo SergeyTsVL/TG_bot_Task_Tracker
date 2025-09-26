@@ -34,22 +34,31 @@ _____________________________________
 В данном боте можно добавлять категории и задания для каждого пользователя. Бот сохраняет их в базе данных Sqlite и выводит задания по каждой категории списком с возможностью редактировать каждое отдельное задание если оно еще не выполнено и/или ставить отметку о его выполнении.
 Как ввести TOKEN в пайчарм.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/0.png)
+#
 Стартовая страница.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/1.png)
+#
 Запуск бота.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/2.png)
+#
 Создать новыу категорию.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/3.png)
+#
 Создать новыу категорию.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/4.png)
+#
 Вывод всех категорий списком.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/5.png)
+#
 Добавление записей в категории.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/6.png)
+#
 Вывод всех запсей конкретной категории.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/7.png)
+#
 Как выглядят категории когда статус изменне на выполнено.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/8.png)
+#
 Редактирование записей категории.
 ![Uploading 1.png…](https://github.com/SergeyTsVL/TG_bot_Task_Tracker/blob/main/images/9.png)
 
